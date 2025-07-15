@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="ja" http-equiv="Content-Language" />
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <script
+      type="text/javascript"
+      src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"
+    ></script>
+
+    <title>インバータ 選定補助 ver1.00</title>
+  </head>
+
+  <body>
+    <p><strong>インバータ定格電流</strong></p>
+    <p>
+      <strong>型式　</strong>
+      <!--コンボボックス-->
+      <select
+        id="ComboBox-Select1"
+        name="FR-800シリーズ"
+        style="width: 145px"
+        value=""
+      >
+        <option value="" selected></option>
+        <option value="0">FR-A820-0.4K</option>
+        <option value="1">FR-A820-0.75K</option>
+        <option value="2">FR-A820-1.5K</option>
+        <option value="3">FR-A820-2.2K</option>
+        <option value="4">FR-A820-3.7K</option>
+        <option value="5">FR-A820-5.5K</option>
+        <option value="6">FR-A820-7.5K</option>
+        <option value="7">FR-A820-11K</option>
+        <option value="8">FR-A820-15K</option>
+        <option value="9">FR-A820-18.5K</option>
+        <option value="10">FR-A820-22K</option>
+        <option value="11">FR-A820-30K</option>
+        <option value="12">FR-A820-37K</option>
+
+        <option value="13">FR-E820-0.1K</option>
+        <option value="14">FR-E820-0.2K</option>
+        <option value="15">FR-E820-0.4K</option>
+        <option value="16">FR-E820-0.75K</option>
+        <option value="17">FR-E820-1.5K</option>
+        <option value="18">FR-E820-2.2K</option>
+        <option value="19">FR-E820-3.7K</option>
+        <option value="20">FR-E820-5.5K</option>
+        <option value="21">FR-E820-7.5K</option>
+        <option value="22">FR-E820-11K</option>
+        <option value="23">FR-E820-15K</option>
+        <option value="24">FR-E820-18.5K</option>
+        <option value="25">FR-E820-22K</option>
+      </select>
+    </p>
+
+    <p>
+      <strong>定格容量</strong><label id="Label1"></label><br />
+      <input id="TEIKAKUYOURYO" name="Text1" />
+      <strong>(kVA)</strong>
+    </p>
+    <p><strong>定格電流（A)</strong></p>
+    <input id="TEIKAKUDENRYU" name="Text1" />
+    <strong>(A)</strong>
+    <p><strong>DCリアクトル型式</strong></p>
+    <input id="DCREACTOR" name="Text1" />
+    <p><strong>ラインノイズフィルタ型式</strong></p>
+    <input id="LINENOISEFILTER" name="Text1" /><br />
+    <input id="LINENOISEFILTER_NUM" name="Text1" />
+    <strong>(個)</strong><br />
+    <input id="LINENOISEFILTER_MAKI" name="Text1" />
+    <strong>(巻)</strong>
+    <p>
+      <img
+        border="0"
+        alt=""
+        src="https://cdn.glitch.global/4fb2e99a-c32b-47d0-bceb-6d729052fcd7/001_image%2FA800.jpg?v=1744767112998"
+        width="670"
+        height="714"
+      />
+    </p>
+    <p>
+      <img
+        border="0"
+        alt=""
+        src="https://cdn.glitch.global/4fb2e99a-c32b-47d0-bceb-6d729052fcd7/001_image%2FA800-2.jpg?v=1744767111872"
+        width="669"
+        height="369"
+      />
+    </p>
+    <p>&nbsp;</p>
+    <p>
+      <img
+        border="0"
+        alt=""
+        src="https://cdn.glitch.global/4fb2e99a-c32b-47d0-bceb-6d729052fcd7/001_image%2FE800.jpg?v=1744767115238"
+        width="626"
+        height="688"
+      />
+    </p>
+    <p>
+      <img
+        border="0"
+        alt=""
+        src="https://cdn.glitch.global/4fb2e99a-c32b-47d0-bceb-6d729052fcd7/001_image%2FE800-2.jpg?v=1744767114003"
+        width="641"
+        height="359"
+      />
+    </p>
+  </body>
+
+  <!--'********************************************************************
+'関数名             ｺﾝﾎﾞﾎﾞｯｸｽが変わったとき
+'備考
+'作成日時           2022/08/24
+'作成者             木村
+'********************************************************************-->
+  <script type="text/javascript">
+    <!--ｺﾝﾎﾞﾎﾞｯｸｽが変わった時に値(数値)をﾃｷｽﾄﾎﾞｯｸｽへ挿入-->
+    $("#ComboBox-Select1").change(function () {
+      let INVData = [
+        [1.1, 3.0, "FR-HEL-0.4K ", "FR-BSF01", 1, 4],
+        [1.9, 5.0, "FR-HEL-0.75K", "FR-BSF01", 1, 4],
+        [3.0, 8.0, "FR-HEL-1.5K ", "FR-BSF01", 1, 4],
+        [4.2, 11.0, "FR-HEL-2.2K ", "FR-BSF01", 1, 4],
+        [6.7, 17.5, "FR-HEL-3.7K ", "FR-BSF01", 1, 4],
+        [9.1, 24.0, "FR-HEL-5.5K ", "FR-BLF  ", 1, 4],
+        [13.0, 33.0, "FR-HEL-7.5K ", "FR-BLF  ", 1, 4],
+        [18.0, 46.0, "FR-HEL-11K  ", "FR-BLF  ", 1, 4],
+        [23.0, 61.0, "FR-HEL-15K  ", "FR-BLF  ", 1, 4],
+        [29.0, 76.0, "FR-HEL-18.5K", "FR-BLF  ", 2, 2],
+        [34.0, 90.0, "FR-HEL-22K  ", "FR-BLF  ", 2, 2],
+        [44.0, 115, "FR-HEL-30K  ", "FR-BLF  ", 2, 2],
+        [55.0, 145, "FR-HEL-37K  ", "FR-BLF  ", 4, 1],
+        [0.3, 0.8, "FR-HEL-0.1K ", "FR-BSF01", 1, 4],
+        [0.6, 1.5, "FR-HEL-0.2K ", "FR-BSF01", 1, 4],
+        [1.2, 3.0, "FR-HEL-0.4K ", "FR-BSF01", 1, 4],
+        [2.0, 5.0, "FR-HEL-0.75K", "FR-BSF01", 1, 4],
+        [3.2, 8.0, "FR-HEL-1.5K ", "FR-BSF01", 1, 4],
+        [4.4, 11.0, "FR-HEL-2.2K ", "FR-BSF01", 1, 4],
+        [7.0, 17.5, "FR-HEL-3.7K ", "FR-BSF01", 1, 4],
+        [9.6, 24.0, "FR-HEL-5.5K ", "FR-BLF  ", 1, 4],
+        [13.1, 33.0, "FR-HEL-7.5K ", "FR-BLF  ", 1, 4],
+        [18.7, 47.0, "FR-HEL-11K  ", "FR-BLF  ", 1, 4],
+        [23.9, 60.0, "FR-HEL-15K  ", "FR-BLF  ", 1, 4],
+        [30.3, 76.0, "FR-HEL-18.5K", "FR-BLF  ", 2, 2],
+        [35.9, 90.0, "FR-HEL-22K  ", "FR-BLF  ", 4, 2],
+      ];
+
+      var val = $("option:selected").val();
+
+      let Data = INVData[val];
+      $("#TEIKAKUYOURYO").val(Data[0]);
+      $("#TEIKAKUDENRYU").val(Data[1]);
+      $("#DCREACTOR").val(Data[2]);
+      $("#LINENOISEFILTER").val(Data[3]);
+      $("#LINENOISEFILTER_NUM").val(Data[4]);
+      $("#LINENOISEFILTER_MAKI").val(Data[5]);
+    });
+  </script>
+</html>
